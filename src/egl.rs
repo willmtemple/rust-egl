@@ -247,6 +247,9 @@ pub fn CopyBuffers(dpy: EGLDisplay, surface: EGLSurface, target: EGLNativePixmap
     }
 }
 
+
+#[cfg(not(target_os = "android"))]
+#[link(name = "EGL")]
 extern {
     fn eglGetError() -> EGLint;
     fn eglGetDisplay(display_id: EGLNativeDisplayType) -> EGLDisplay;
